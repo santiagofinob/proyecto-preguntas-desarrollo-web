@@ -39,9 +39,9 @@ function reiniciar(){
     containerPregunta.classList.add("ocultar");
     btnReiniciar.classList.add("ocultar");
     btnSiguiente.classList.add("ocultar");
-    detenerTiempo
-   reset()
-   ocultarPuntaje()
+    detenerTiempo()
+    reset()
+    ocultarPuntaje()
 }
 
 function mostrarPregunta(){
@@ -131,7 +131,7 @@ function ocultarPuntaje(){
          { texto: '4', correcto: true },
          { texto: '22', correcto: false },
          { texto:'5', correcto:false },
-         { texto:'5', correcto:false },
+         { texto:'6', correcto:false },
        ]
      },
      {
@@ -149,7 +149,7 @@ function ocultarPuntaje(){
          { texto: 'respuesta', correcto: false },
          { texto: 'respuesta', correcto: true },
          { texto: 'respuesta', correcto: false },
-         { texto: 'respuesta', correcto: false }
+         { texto: 'respuesta', correcto: true }
        ]
      },
      {
