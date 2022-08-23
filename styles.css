@@ -26,6 +26,16 @@ body{
     border-radius: 5px;
     padding: 12px;
 }
+.container-p-timer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.timer{
+    font-size: 1.5rem;
+    margin: 8px;
+    font-weight: bold;
+}
 .txt-pregunta{
     font-size: 1.5rem;
     margin: 8px;
@@ -51,7 +61,7 @@ body{
     border-radius: 5px;
 }
 .btn:hover,.res:hover{
-    background-color: rgb(224, 224, 224);
+    cursor: pointer;
 }
 .botones{
     display: flex;
@@ -63,6 +73,12 @@ body{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
+}
+.correcto{
+    background-color: var(--color-correcto);
+}
+.incorrecto{
+    background-color: var(--color-incorrecto);
 }
 @media (max-width: 425px) {
     .container-respuestas{
