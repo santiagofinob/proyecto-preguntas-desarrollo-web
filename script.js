@@ -19,9 +19,10 @@ btnReiniciar.addEventListener("click",reiniciar);
 btnSiguiente.addEventListener("click", ()=>{
     indicePreguntaActual++
     reset()
-    mostrarPregunta()
-    detenerTiempo()
+     detenerTiempo()
     iniciarTiempo(15)
+    mostrarPregunta()
+   
 })
 function iniciar(){
     btnIniciar.classList.add("ocultar");
@@ -29,7 +30,7 @@ function iniciar(){
     btnSiguiente.classList.remove("ocultar");
     indicePreguntaActual=0;
     containerPregunta.classList.remove("ocultar");
-    detenerTiempo
+    detenerTiempo()
     iniciarTiempo(15)
     mostrarPregunta()
     ocultarPuntaje()    
