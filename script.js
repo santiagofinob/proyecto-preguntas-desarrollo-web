@@ -9,6 +9,10 @@ const respuesta1 = document.getElementById("res1")
 const respuesta2 = document.getElementById("res2")
 const respuesta3 = document.getElementById("res3")
 const respuesta4 = document.getElementById("res4")
+const botonesCategorias = document.getElementById("botones-categorias")
+const btnCicloBasico = document.getElementById("btn-ciclo-basico")
+const btnProgramacion = document.getElementById("btn-programacion")
+const btnMultimedia = document.getElementById("btn-multimedia")
 const elementoContador=document.getElementById("timer")
 let indicePreguntaActual;
 let puntaje = 0
@@ -19,30 +23,85 @@ btnReiniciar.addEventListener("click",reiniciar);
 btnSiguiente.addEventListener("click", ()=>{
     indicePreguntaActual++
     reset()
-     detenerTiempo()
-    iniciarTiempo(15)
     mostrarPregunta()
-   
-})
-function iniciar(){
-    btnIniciar.classList.add("ocultar");
-    btnReiniciar.classList.remove("ocultar");
-    btnSiguiente.classList.remove("ocultar");
-    indicePreguntaActual=0;
-    containerPregunta.classList.remove("ocultar");
     detenerTiempo()
     iniciarTiempo(15)
+})
+Array.from(botonesCategorias.children).forEach(categoria =>{
+  categoria.addEventListener("click", (e)=>{
+   if (e.target==btnCicloBasico) {
+    iniciarCicloBasico()
+    console.log("ciclo basico")
+   }
+   if (e.target==btnProgramacion) {
+    iniciarProgramacion()
+    console.log("programacion")
+   }
+   if (e.target==btnMultimedia) {
+    iniciarMultimedia()
+    console.log("multimedia")
+   }
+  })
+})
+function iniciar(){
+    btnIniciar.classList.add("ocultar")
+    btnCicloBasico.classList.remove("ocultar")
+    btnProgramacion.classList.remove("ocultar")
+    btnMultimedia.classList.remove("ocultar")
+}
+function iniciarCicloBasico(){
+    indicePreguntaActual=0;
+    preguntas=preguntasCicloBasico
+    containerPregunta.classList.remove("ocultar");
+    detenerTiempo
+    iniciarTiempo(15)
     mostrarPregunta()
+    ocultarCategorias()
     ocultarPuntaje()    
+    desocultar()
+}
+function iniciarProgramacion(){
+    indicePreguntaActual=0;
+    preguntas=preguntasProgramacion
+    containerPregunta.classList.remove("ocultar");
+    detenerTiempo
+    iniciarTiempo(15)
+    mostrarPregunta()
+    ocultarCategorias()
+    ocultarPuntaje()    
+    desocultar()
+}
+function iniciarMultimedia(){
+    indicePreguntaActual=0;
+    preguntas=preguntasMultimedia
+    containerPregunta.classList.remove("ocultar");
+    detenerTiempo
+    iniciarTiempo(15)
+    mostrarPregunta()
+    ocultarCategorias()
+    ocultarPuntaje()    
+    desocultar()
+}
+function desocultar(){
+  btnReiniciar.classList.remove("ocultar");
+  btnSiguiente.classList.remove("ocultar");
+}
+function ocultarCategorias() {
+  btnCicloBasico.classList.add("ocultar")
+  btnProgramacion.classList.add("ocultar")
+  btnMultimedia.classList.add("ocultar")
 }
 function reiniciar(){
     btnIniciar.classList.remove("ocultar");
     containerPregunta.classList.add("ocultar");
     btnReiniciar.classList.add("ocultar");
     btnSiguiente.classList.add("ocultar");
-    detenerTiempo()
-    reset()
-    ocultarPuntaje()
+    btnCicloBasico.classList.add("ocultar")
+    btnProgramacion.classList.add("ocultar")
+    btnMultimedia.classList.add("ocultar")
+    detenerTiempo
+   reset()
+   ocultarPuntaje()
 }
 
 function mostrarPregunta(){
@@ -125,14 +184,16 @@ function ocultarPuntaje(){
   elementoPuntaje.classList.add("ocultar")
 }
 
- const preguntas = [
+let preguntas = []
+
+ const preguntasCicloBasico = [
      {
        pregunta: '¿Cuánto es 2+2?',
        respuestas: [
          { texto: '4', correcto: true },
          { texto: '22', correcto: false },
          { texto:'5', correcto:false },
-         { texto:'6', correcto:false },
+         { texto:'5', correcto:false },
        ]
      },
      {
@@ -150,7 +211,7 @@ function ocultarPuntaje(){
          { texto: 'respuesta', correcto: false },
          { texto: 'respuesta', correcto: true },
          { texto: 'respuesta', correcto: false },
-         { texto: 'respuesta', correcto: true }
+         { texto: 'respuesta', correcto: false }
        ]
      },
      {
@@ -161,3 +222,77 @@ function ocultarPuntaje(){
        ]
      }
    ]
+
+   const preguntasProgramacion = [
+    {
+      pregunta: '¿Cuánto es 2+2?',
+      respuestas: [
+        { texto: '4', correcto: true },
+        { texto: '22', correcto: false },
+        { texto:'5', correcto:false },
+        { texto:'5', correcto:false },
+      ]
+    },
+    {
+      pregunta: 'Pregunta 2',
+      respuestas: [
+        { texto: 'respuesta', correcto: true },
+        { texto: 'respuesta', correcto: true },
+        { texto: 'respuesta', correcto: true },
+        { texto: 'respuesta', correcto: true }
+      ]
+    },
+    {
+      pregunta: 'pregunta?',
+      respuestas: [
+        { texto: 'respuesta', correcto: false },
+        { texto: 'respuesta', correcto: true },
+        { texto: 'respuesta', correcto: false },
+        { texto: 'respuesta', correcto: false }
+      ]
+    },
+    {
+      pregunta: 'pregunta',
+      respuestas: [
+        { texto: 'respuesta', correcto: false },
+        { texto: 'respuesta', correcto: true }
+      ]
+    }
+  ]
+
+  const preguntasMultimedia = [
+    {
+      pregunta: '¿Cuánto es 2+2?',
+      respuestas: [
+        { texto: '4', correcto: true },
+        { texto: '22', correcto: false },
+        { texto:'5', correcto:false },
+        { texto:'5', correcto:false },
+      ]
+    },
+    {
+      pregunta: 'Pregunta 2',
+      respuestas: [
+        { texto: 'respuesta', correcto: true },
+        { texto: 'respuesta', correcto: true },
+        { texto: 'respuesta', correcto: true },
+        { texto: 'respuesta', correcto: true }
+      ]
+    },
+    {
+      pregunta: 'pregunta?',
+      respuestas: [
+        { texto: 'respuesta', correcto: false },
+        { texto: 'respuesta', correcto: true },
+        { texto: 'respuesta', correcto: false },
+        { texto: 'respuesta', correcto: false }
+      ]
+    },
+    {
+      pregunta: 'pregunta',
+      respuestas: [
+        { texto: 'respuesta', correcto: false },
+        { texto: 'respuesta', correcto: true }
+      ]
+    }
+  ]
