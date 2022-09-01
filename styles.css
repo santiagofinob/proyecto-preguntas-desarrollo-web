@@ -66,10 +66,11 @@ body{
 .btn:hover,.res:hover{
     cursor: pointer;
 }
-.botones-categoria{
+.botones-categorias{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1em;
 }
 .botones{
     display: flex;
@@ -88,6 +89,9 @@ body{
       display: flex;
       flex-direction: column;
       gap: 16px;
+    }
+    .botones-categorias{
+        flex-direction:column;
     }
     .res{
         padding: 16px;
