@@ -53,7 +53,7 @@ function iniciarCicloBasico(){
     indicePreguntaActual=0;
     preguntas=preguntasCicloBasico
     containerPregunta.classList.remove("ocultar");
-    detenerTiempo
+    detenerTiempo()
     iniciarTiempo(15)
     mostrarPregunta()
     ocultarCategorias()
@@ -64,7 +64,7 @@ function iniciarProgramacion(){
     indicePreguntaActual=0;
     preguntas=preguntasProgramacion
     containerPregunta.classList.remove("ocultar");
-    detenerTiempo
+    detenerTiempo()
     iniciarTiempo(15)
     mostrarPregunta()
     ocultarCategorias()
@@ -75,7 +75,7 @@ function iniciarMultimedia(){
     indicePreguntaActual=0;
     preguntas=preguntasMultimedia
     containerPregunta.classList.remove("ocultar");
-    detenerTiempo
+    detenerTiempo()
     iniciarTiempo(15)
     mostrarPregunta()
     ocultarCategorias()
